@@ -1,46 +1,76 @@
-ul {
-    list-style: none;
-    display: flex;
-    gap: 6rem;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-ul li {
-    font-family: 'DynaPuff', cursive;
-    font-size: 1.4em;
-    font-weight: 500;
-    color: rgb(221, 21, 21);
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: #1c1b19;
 }
 
-ul li:hover {
-    color: #636360;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  font-family: "DynaPuff", cursive;
+}
+
+.nav-items {
+  list-style: none;
+  display: flex;
+  cursor: pointer;
+}
+
+.nav-item {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 1.5rem 0.8rem;
+  color: goldenrod;
+  cursor: pointer;
+  transition: transform 0.4s ease-in-out;
+}
+
+.nav-item:hover {
+  color: #fff;
+  transform: scale(1.1);
 }
 
 header {
-    display: flex;
-    gap: 8rem;
-    padding: 5px 20rem;
-    border: 2px solid black;
-    align-items: center;
-    background-color: beige;
+  background-color: #000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: goldenrod;
+  padding: 1rem 0;
 }
 
 .logo-img {
-    height: 70px;
+  height: 2rem;
+  margin-right: 0.5rem;
 }
 
 .container {
-    height: 80vh;
-    background-color: rgb(216, 245, 235);
+  background-color: rgb(216, 245, 235);
 }
 
 footer {
-    border: 2px solid black;
-    padding: 5px 10rem;
-    background-color: beige;
+  background-color: #000;
+  position: fixed;
+  padding: 1rem 5%;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
-.fotter-text {
-    font-size: 20px;
-    font-weight: 900;
-    color: rgb(49, 48, 48);
+.footer-text {
+  font-family: "DynaPuff", cursive;
+  font-size: 1rem;
+  font-weight: 900;
+  color: goldenrod;
 }
