@@ -5,9 +5,6 @@ const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   mode: 'production',
-  devServer: {
-    static: './dist',
-  },
   output: {
     filename: 'main.[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
