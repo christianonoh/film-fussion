@@ -80,13 +80,14 @@ footer {
 .cards {
   padding: 20px;
   background-color: rgb(218, 250, 8);
-  width: 300px;
-  height: 400px;
+  width: 400px;
+  height: 450px;
   border-radius: 30px;
+  overflow-y: auto;
 }
 
-.image {
-  height: 70%;
+.cards:hover {
+  transform: scale(1.04);
 }
 
 .name-like {
@@ -96,7 +97,7 @@ footer {
   padding: 10px 0;
 }
 
-.coment-Btn {
+.comment-Btn {
   width: 100%;
   padding: 10px;
   background-color: red;
@@ -113,6 +114,11 @@ footer {
   font-size: 30px;
   color: rgb(83, 77, 76);
   font-family: "DynaPuff", cursive;
+}
+
+.image-div {
+  display: flex;
+  justify-content: center;
 }
 
 /* PopUp  */
@@ -146,12 +152,12 @@ footer {
 .popup-image {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   width: 50%;
 }
 
 .popup-image img {
-  height: 90%;
+  height: 80%;
 }
 
 .popup-details {
@@ -207,6 +213,7 @@ h3 {
 
 .popup-comment {
   padding: 0.3rem;
+  font-size: 0.8rem;
   border-bottom: 1px solid #daa520;
   color: #fff;
 }
@@ -253,4 +260,10 @@ textarea,
   font-size: 2rem;
   position: absolute;
   margin: 1.5rem 0 0 1.5rem;
+}
+
+.popup-about-container p {
+  color: #fff;
+  padding: 0.5rem 0;
+  font-size: 0.8rem;
 }
