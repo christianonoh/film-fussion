@@ -160,7 +160,6 @@ footer {
   background-color: #000;
   width: 50%;
   padding: 2rem 5% 0.5rem 5%;
-  border: 1px solid red;
 }
 
 h3 {
@@ -179,8 +178,6 @@ h3 {
   align-items: center;
   justify-content: center;
   border-right: 1px solid #000;
-
-  /* border: 1px solid red; */
 }
 
 .popup-about-title {
@@ -190,10 +187,6 @@ h3 {
 
 .popup-about-value {
   font-size: 2rem;
-}
-
-.popup-about-container {
-  /* height: 7.5rem; */
 }
 
 .comments-wrapper {
@@ -226,7 +219,6 @@ h3 {
   right: 0;
   left: 0;
   margin: 0 auto 0.2rem auto;
-  border: 1px solid red;
 }
 
 .comment-form {
