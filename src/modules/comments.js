@@ -1,29 +1,28 @@
 /* eslint-disable no-unused-vars */
 const gameKey = 'lA4aY26h8QYvNopssI0V';
-const postBtn = document.querySelector('.post-btn');
 const popUpContainer = document.querySelector('.popup-container');
 const form = document.querySelector('form');
 const commentContainer = document.createElement('ul');
 commentContainer.classList.add('popup-comments');
-const commentBtn = document.querySelectorAll('.coment-Btn');
 
-const getSeverData = async (link) => {
-  try {
-    const response = await fetch(link, {
-      method: 'GET',
-    });
-    const responseData = await response.json();
-    return responseData;
-  } catch (error) {
-    return error;
-  }
-};
+class ShowComment {
+ getSeverData = async (link) => {
+   try {
+     const response = await fetch(link, {
+       method: 'GET',
+     });
+     const responseData = await response.json();
+     return responseData;
+   } catch (error) {
+     return error;
+   }
+ };
 
 // Load comments from API
-export const loadComments = async (id) => {
+loadComments = async (index) => {
   commentContainer.innerHTML = '';
-  const movieComments = await getSeverData(
-    `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${gameKey}/comments?item_id=${id}`,
+  const movieComments = await this.getSeverData(
+    `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${gameKey}/comments?item_id=${index}`,
   );
   if (movieComments.length > 0) {
     movieComments.forEach((element) => {
@@ -36,15 +35,12 @@ export const loadComments = async (id) => {
   return commentContainer;
 };
 
-export const togglePopUp = () => {
-  // document.body.classList.toggle("no-scroll");
+togglePopUp = () => {
   popUpContainer.classList.toggle('hidden');
 };
 
-// Deploy pop up
-export const deployPopUp = async (id) => {
-  const comments = await loadComments(id);
-  const show = await getSeverData(`https://api.tvmaze.com/shows/${id}`);
+deployPopUp = async (show, index) => {
+  const comments = await this.loadComments(index);
   const popupCommentsContainer = document.createElement('div');
   popupCommentsContainer.classList.add('popup-comments-container');
   popupCommentsContainer.innerHTML = `
@@ -81,16 +77,14 @@ export const deployPopUp = async (id) => {
       </div>
     </div>
   `;
-  console.log(show);
 };
+}
 
 popUpContainer.addEventListener('click', (event) => {
   if (event.target.classList.contains('close-popup')) {
-    document.body.classList.toggle('no-scroll');
     popUpContainer.classList.toggle('hidden');
   } else if (event.target.classList.contains('comment-btn')) {
     event.preventDefault();
-    alert('working');
     const userName = form.elements.user.value;
     const userComment = form.elements.comment.value;
     const itemId = 3;
@@ -104,3 +98,5 @@ popUpContainer.addEventListener('click', (event) => {
     form.elements.comment.value = '';
   }
 });
+
+export default ShowComment;
