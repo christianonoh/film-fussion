@@ -1,3 +1,7 @@
+import ShowComment from './comments.js';
+
+const showcomment = new ShowComment();
+
 const Cards = document.querySelector('.container');
 
 class TVShowCards {
@@ -38,9 +42,18 @@ class TVShowCards {
                 <span class='heart'>&#x2764;</span>
                 <span id='likeCount'>(0)</span>
               </div>
-              <button class='comment-Btn'>Comments</button>
+              <button class='comment-Btn' data-index="${data.id}">Comments</button>
             </div>`;
       }
+    });
+    const commentBtns = document.querySelectorAll('.comment-Btn');
+    commentBtns.forEach((commentBtn) => {
+      commentBtn.addEventListener('click', (event) => {
+        const { index } = event.target.dataset;
+        const show = this.collection.find((data) => data.id === parseInt(index, 10));
+        showcomment.togglePopUp();
+        showcomment.deployPopUp(show, index);
+      });
     });
   };
 

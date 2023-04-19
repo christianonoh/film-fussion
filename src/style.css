@@ -120,3 +120,150 @@ footer {
   display: flex;
   justify-content: center;
 }
+
+/* PopUp  */
+.popup-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.popup {
+  display: flex;
+  margin: auto;
+  width: 90%;
+  height: 60vw;
+  max-height: 45rem;
+  background-color: aliceblue;
+  font-family: "DynaPuff", cursive;
+}
+
+.popup-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.popup-image img {
+  height: 80%;
+}
+
+.popup-details {
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+  width: 50%;
+  padding: 2rem 5% 0.5rem 5%;
+}
+
+h3 {
+  color: #daa520;
+}
+
+.popup-about {
+  display: flex;
+}
+
+.popup-about li {
+  display: flex;
+  flex-direction: column;
+  width: 33.33%;
+  background-color: #daa520;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #000;
+}
+
+.popup-about-title {
+  font-weight: 700;
+  order: 2;
+}
+
+.popup-about-value {
+  font-size: 2rem;
+}
+
+.comments-wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.popup-comments-container {
+  margin: 2rem 0;
+}
+
+.popup-comments {
+  flex: 1;
+  height: 20vw;
+  max-height: 20rem;
+  overflow-y: scroll;
+}
+
+.popup-comment {
+  padding: 0.3rem;
+  font-size: 0.8rem;
+  border-bottom: 1px solid #daa520;
+  color: #fff;
+}
+
+.add-comment-container {
+  height: 10rem;
+  background-color: #000;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: 0 auto 0.2rem auto;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-form input,
+textarea,
+.comment-btn {
+  margin-bottom: 0.2rem;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+}
+
+.comment-date {
+  font-size: 0.8rem;
+  margin-top: 0;
+  line-height: normal;
+}
+
+.hidden {
+  display: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+}
+
+.close-popup {
+  font-size: 2rem;
+  position: absolute;
+  margin: 1.5rem 0 0 1.5rem;
+}
+
+.popup-about-container p {
+  color: #fff;
+  padding: 0.5rem 0;
+  font-size: 0.8rem;
+}
