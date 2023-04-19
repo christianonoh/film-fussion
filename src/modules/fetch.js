@@ -1,6 +1,6 @@
-import {
-  deployPopUp, togglePopUp,
-} from './comments.js';
+import ShowComment from './comments.js';
+
+const showcomment = new ShowComment();
 
 const Cards = document.querySelector('.container');
 
@@ -50,8 +50,9 @@ class TVShowCards {
     commentBtns.forEach((commentBtn) => {
       commentBtn.addEventListener('click', (event) => {
         const { index } = event.target.dataset;
-        togglePopUp();
-        deployPopUp(index);
+        const show = this.collection.find((data) => data.id === parseInt(index, 10));
+        showcomment.togglePopUp();
+        showcomment.deployPopUp(show, index);
       });
     });
   };
