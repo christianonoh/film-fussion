@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: #1c1b19;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  font-family: "DynaPuff", cursive;
+}
+
+.nav-items {
+  list-style: none;
+  display: flex;
+  cursor: pointer;
+}
+
+.nav-item {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 1.5rem 0.8rem;
+  color: goldenrod;
+  cursor: pointer;
+  transition: transform 0.4s ease-in-out;
+}
+
+.nav-item:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+header {
+  background-color: #000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: goldenrod;
+  padding: 1rem 0;
+}
+
+.logo-img {
+  height: 2rem;
+  margin-right: 0.5rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 30px;
+  padding: 20px 0 30px 140px;
+}
+
+footer {
+  background-color: #000;
+  padding: 1rem 5%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.footer-text {
+  font-family: "DynaPuff", cursive;
+  font-size: 1rem;
+  font-weight: 900;
+  color: goldenrod;
+}
+
+.cards {
+  padding: 20px;
+  background-color: rgb(218, 250, 8);
+  width: 400px;
+  height: 450px;
+  border-radius: 30px;
+  overflow-y: auto;
+}
+
+.cards:hover {
+  transform: scale(1.04);
+}
+
+.name-like {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.comment-Btn {
+  width: 100%;
+  padding: 10px;
+  background-color: red;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.heart {
+  font-size: 44px;
+  color: #fff;
+}
+
+.ch-nmae {
+  font-size: 30px;
+  color: rgb(83, 77, 76);
+  font-family: "DynaPuff", cursive;
+}
+
+.image-div {
+  display: flex;
+  justify-content: center;
+}
