@@ -49,7 +49,7 @@ export const deployPopUp = async (id) => {
     <div class="popup">
     <i class="fa fa-times close-popup" aria-hidden="true"></i>
       <div class="popup-image">
-        <img src="#" alt="#">
+        <img src="../images/haaland.png" alt="#">
       </div>
       <div class="popup-details">
         <div class="popup-about-container">
@@ -76,6 +76,27 @@ export const deployPopUp = async (id) => {
   `;
 };
 
+// Add data to API
+const postComment = async (comment) => {
+  try {
+    const response = await fetch(topSpot, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(comment),
+    });
+    const apiResponse = await response.json();
+    feedbackMessage.textContent = apiResponse.result;
+    setTimeout(() => {
+      feedbackMessage.textContent = "";
+    }, 2000);
+  } catch (error) {
+    return error;
+  }
+  return null;
+};
+
 // Event listeners
 commentBtn.forEach((btn, index) => {
   btn.addEventListener("click", () => {
@@ -90,5 +111,13 @@ popUpContainer.addEventListener("click", (event) => {
   if (event.target.classList.contains("close-popup")) {
     document.body.classList.toggle("no-scroll");
     popUpContainer.classList.toggle("hidden");
+  } else if(event.target.classList.contains('comment-btn')) {
+    e.preventDefault();
+  const userName = form.elements.user.value;
+  const userComment = form.elements.comment.value;
+  alert(`${userName} and ${userComment}`);
+  postComment({ item_id: item1, username: userName, comment: userComment });
+  form.elements.user.value = "";
+  form.elements.comment.value = "";
   }
 });
