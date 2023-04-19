@@ -1,16 +1,16 @@
 /* eslint-disable no-unused-vars */
-const gameKey = "lA4aY26h8QYvNopssI0V";
-const postBtn = document.querySelector(".post-btn");
-const popUpContainer = document.querySelector(".popup-container");
-const form = document.querySelector("form");
-const commentContainer = document.createElement("ul");
-commentContainer.classList.add("popup-comments");
-const commentBtn = document.querySelectorAll(".coment-Btn");
+const gameKey = 'lA4aY26h8QYvNopssI0V';
+const postBtn = document.querySelector('.post-btn');
+const popUpContainer = document.querySelector('.popup-container');
+const form = document.querySelector('form');
+const commentContainer = document.createElement('ul');
+commentContainer.classList.add('popup-comments');
+const commentBtn = document.querySelectorAll('.coment-Btn');
 
 const getSeverData = async (link) => {
   try {
     const response = await fetch(link, {
-      method: "GET",
+      method: 'GET',
     });
     const responseData = await response.json();
     return responseData;
@@ -21,9 +21,9 @@ const getSeverData = async (link) => {
 
 // Load comments from API
 export const loadComments = async (id) => {
-  commentContainer.innerHTML = "";
+  commentContainer.innerHTML = '';
   const movieComments = await getSeverData(
-    `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${gameKey}/comments?item_id=${id}`
+    `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${gameKey}/comments?item_id=${id}`,
   );
   if (movieComments.length > 0) {
     movieComments.forEach((element) => {
@@ -36,11 +36,17 @@ export const loadComments = async (id) => {
   return commentContainer;
 };
 
+export const togglePopUp = () => {
+  // document.body.classList.toggle("no-scroll");
+  popUpContainer.classList.toggle('hidden');
+};
+
 // Deploy pop up
 export const deployPopUp = async (id) => {
   const comments = await loadComments(id);
-  const popupCommentsContainer = document.createElement("div");
-  popupCommentsContainer.classList.add("popup-comments-container");
+  const show = await getSeverData(`https://api.tvmaze.com/shows/${id}`);
+  const popupCommentsContainer = document.createElement('div');
+  popupCommentsContainer.classList.add('popup-comments-container');
   popupCommentsContainer.innerHTML = `
     <h3>Comments</h3>
   `;
@@ -49,15 +55,16 @@ export const deployPopUp = async (id) => {
     <div class="popup">
     <i class="fa fa-times close-popup" aria-hidden="true"></i>
       <div class="popup-image">
-        <img src="../images/haaland.png" alt="#">
+        <img src="${show.image.medium}" alt="${show.name}">
       </div>
       <div class="popup-details">
         <div class="popup-about-container">
           <h3>Stats this year</h3>
+          ${show.summary}
           <ul class="popup-about">
-            <li><span class="popup-about-title">Ratings</span> <span class="popup-about-value">8/10</span></li>
-            <li> <span class="popup-about-title">Goals</span> <span class="popup-about-value">37</span></li>
-            <li> <span class="popup-about-title">Assists</span><span class="popup-about-value">20</span></li>
+            <li><span class="popup-about-title">Rating</span> <span class="popup-about-value">${show.rating.average}</span></li>
+            <li> <span class="popup-about-title">Runtime</span> <span class="popup-about-value">${show.runtime}</span></li>
+            <li> <span class="popup-about-title">Genre</span><span class="popup-about-value">${show.genres[0]}</span></li>
           </ul>
         </div>
         <div class="comments-wrapper">
@@ -74,50 +81,26 @@ export const deployPopUp = async (id) => {
       </div>
     </div>
   `;
+  console.log(show);
 };
 
-// Add data to API
-const postComment = async (comment) => {
-  try {
-    const response = await fetch(topSpot, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(comment),
+popUpContainer.addEventListener('click', (event) => {
+  if (event.target.classList.contains('close-popup')) {
+    document.body.classList.toggle('no-scroll');
+    popUpContainer.classList.toggle('hidden');
+  } else if (event.target.classList.contains('comment-btn')) {
+    event.preventDefault();
+    alert('working');
+    const userName = form.elements.user.value;
+    const userComment = form.elements.comment.value;
+    const itemId = 3;
+
+    const raw = JSON.stringify({
+      itemId,
+      username: userName,
+      comment: userComment,
     });
-    const apiResponse = await response.json();
-    feedbackMessage.textContent = apiResponse.result;
-    setTimeout(() => {
-      feedbackMessage.textContent = "";
-    }, 2000);
-  } catch (error) {
-    return error;
-  }
-  return null;
-};
-
-// Event listeners
-commentBtn.forEach((btn, index) => {
-  btn.addEventListener("click", () => {
-    alert(index + 1);
-    document.body.classList.toggle("no-scroll");
-    popUpContainer.classList.toggle("hidden");
-    deployPopUp(index + 1);
-  });
-});
-
-popUpContainer.addEventListener("click", (event) => {
-  if (event.target.classList.contains("close-popup")) {
-    document.body.classList.toggle("no-scroll");
-    popUpContainer.classList.toggle("hidden");
-  } else if(event.target.classList.contains('comment-btn')) {
-    e.preventDefault();
-  const userName = form.elements.user.value;
-  const userComment = form.elements.comment.value;
-  alert(`${userName} and ${userComment}`);
-  postComment({ item_id: item1, username: userName, comment: userComment });
-  form.elements.user.value = "";
-  form.elements.comment.value = "";
+    form.elements.user.value = '';
+    form.elements.comment.value = '';
   }
 });
