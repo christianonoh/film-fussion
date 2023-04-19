@@ -6,15 +6,22 @@ class TVShowCards {
   }
 
   fetchCardsData = async () => {
-    for (let i = 1; i <= 22; i++) {
-      try {
-        const response = await fetch(`https://api.tvmaze.com/shows/${i}`);
-        const data = await response.json();
-        this.collection.push(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
+    const requests = [];
+
+    for (let i = 1; i <= 22; i += 1) {
+      requests.push(fetch(`https://api.tvmaze.com/shows/${i}`));
     }
+
+    try {
+      const responses = await Promise.all(requests);
+      const data = await Promise.all(
+        responses.map((response) => response.json()),
+      );
+      this.collection = data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+
     return this.collection;
   };
 
@@ -37,10 +44,10 @@ class TVShowCards {
     });
   };
 
-  updateCards = async () => {
+  async updateCards() {
     const cardsData = await this.fetchCardsData();
     this.renderCards(cardsData);
-  };
+  }
 }
 
 export default TVShowCards;
