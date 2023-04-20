@@ -27,21 +27,22 @@ class ShowLikes {
     try {
       const response = await fetch(this.link);
       const data = await response.json();
+      console.log(data);
       data.forEach((like) => {
-        const { itemId, likes } = like;
-        this.likes[itemId] = likes;
+        const { item_id, likes } = like;
+        this.likes[item_id] = likes;
         const heartIcon = document.querySelector(
-          `[data-index='${itemId}'].heart`,
+          `[data-index='${item_id}'].heart`,
         );
         const likeCount = document.querySelector(
-          `[data-index='${itemId}']#likeCount`,
+          `[data-index='${item_id}']#likeCount`,
         );
 
         if (likeCount) {
-          likeCount.textContent = `(${this.likes[itemId]})`;
+          likeCount.textContent = `(${this.likes[item_id]})`;
         }
         if (heartIcon) {
-          if (this.likes[itemId] > 0) {
+          if (this.likes[item_id] > 0) {
             heartIcon.style.color = 'red';
           } else {
             heartIcon.style.color = 'black';
