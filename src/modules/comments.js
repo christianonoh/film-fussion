@@ -26,8 +26,8 @@ class ShowComment {
     const movieComments = await this.getSeverData(
       `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${gameKey}/comments?item_id=${index}`,
     );
-    this.commentCounter = movieComments.length;
     if (movieComments.length > 0) {
+      this.commentCounter = movieComments.length;
       movieComments.forEach((element) => {
         commentContainer.innerHTML += `
     <li class="popup-comment">
@@ -57,7 +57,7 @@ class ShowComment {
     const popupCommentsContainer = document.createElement('div');
     popupCommentsContainer.classList.add('popup-comments-container');
     popupCommentsContainer.innerHTML = `
-    <h3>Comments</h3>
+    <h3>Comments (${this.commentCounter})</h3>
   `;
     popupCommentsContainer.appendChild(comments);
     popUpContainer.innerHTML = `
