@@ -55,7 +55,7 @@ This webapp is a catalog of items that provides detailed information about each 
 
 ## 🚀 Live Demo <a name="protfolio-project"></a>
  
-https://muneeb3123.github.io/awesome-Books/
+N/A
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -103,7 +103,7 @@ Step 2: Locate the folder where you cloned your project to and open the `index.h
 - **User authentication**
 - **Commenting system**
 - **Search functionality**
--**Related items section on item detail page.**
+- **Related items section on item detail page.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 ## 📼 Project Walkthrough <a name="project-walk"></a>
