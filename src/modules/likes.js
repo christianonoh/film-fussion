@@ -1,7 +1,6 @@
 class ShowLikes {
   constructor() {
     this.link = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/vEd7M0bIqSsuVuChZddE/likes/';
-    this.renderLikes();
   }
 
   updateLikes = async (index) => {
