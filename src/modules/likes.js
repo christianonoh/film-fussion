@@ -1,7 +1,6 @@
 class ShowLikes {
   constructor() {
     this.link = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/vEd7M0bIqSsuVuChZddE/likes/';
-    this.likes = {};
     this.renderLikes();
   }
 
@@ -25,9 +24,8 @@ class ShowLikes {
   renderLikes = async () => {
     try {
       const response = await fetch(this.link);
-      const data = await response.json();
+      const data = await response.json(); // data = {item_id,likes}
       data.forEach((like) => {
-        this.likes[like.item_id] = like.likes;
         const heartIcon = document.querySelector(
           `[data-index='${like.item_id}'].heart`,
         );
@@ -36,10 +34,10 @@ class ShowLikes {
         );
 
         if (likeCount) {
-          likeCount.textContent = `(${this.likes[like.item_id]})`;
+          likeCount.textContent = `(${like.likes})`;
         }
         if (heartIcon) {
-          if (this.likes[like.item_id] > 0) {
+          if (like.likes > 0) {
             heartIcon.style.color = 'red';
           } else {
             heartIcon.style.color = 'black';
