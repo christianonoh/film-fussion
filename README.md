@@ -46,8 +46,8 @@ This webapp is a catalog of items that provides detailed information about each 
 
 > Describe between 1-3 key features of the application.
 - **It has Item catalog**
--**It has Like button**
--**It has Comments popup**
+- **It has Like button**
+- **It has Comments popup**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
