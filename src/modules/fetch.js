@@ -71,7 +71,7 @@ class TVShowCards {
   Counter = () => {
     const Movie = document.querySelector('#movies');
     const movieCount = movieCounter();
-    Movie.textContent = `Movies(${movieCount})`;
+    Movie.innerHTML = `Movies(${movieCount})`;
   }
 
   async updateCards() {
