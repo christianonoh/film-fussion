@@ -16,7 +16,6 @@ class ShowLikes {
       });
       const data = await response.text();
       console.log('Like created successfully:', data);
-      this.likes[index] = (this.likes[index] || 0) + 1;
       this.renderLikes();
     } catch (error) {
       console.error('Error creating like:', error);
@@ -27,28 +26,24 @@ class ShowLikes {
     try {
       const response = await fetch(this.link);
       const data = await response.json();
-      console.log(data);
       data.forEach((like) => {
-        const { item_id, likes } = like;
-        this.likes[item_id] = likes;
+        this.likes[like.item_id] = like.likes;
         const heartIcon = document.querySelector(
-          `[data-index='${item_id}'].heart`,
+          `[data-index='${like.item_id}'].heart`,
         );
         const likeCount = document.querySelector(
-          `[data-index='${item_id}']#likeCount`,
+          `[data-index='${like.item_id}']#likeCount`,
         );
 
         if (likeCount) {
-          likeCount.textContent = `(${this.likes[item_id]})`;
+          likeCount.textContent = `(${this.likes[like.item_id]})`;
         }
         if (heartIcon) {
-          if (this.likes[item_id] > 0) {
+          if (this.likes[like.item_id] > 0) {
             heartIcon.style.color = 'red';
           } else {
             heartIcon.style.color = 'black';
           }
-        } else {
-          console.log('No');
         }
       });
     } catch (error) {
