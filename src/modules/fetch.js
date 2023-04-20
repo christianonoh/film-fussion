@@ -1,4 +1,4 @@
-import ShowComment from './comments.js';
+import { ShowComment, popUpListeners } from './comments.js';
 import ShowLikes from './likes.js';
 import movieCounter from './movies-counter.js';
 
@@ -81,5 +81,5 @@ class TVShowCards {
     this.Counter();
   }
 }
-
+popUpListeners();
 export default TVShowCards;
