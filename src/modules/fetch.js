@@ -1,4 +1,4 @@
-import ShowComment from './comments.js';
+import { ShowComment, popUpListeners } from './comments.js';
 import ShowLikes from './likes.js';
 
 const showcomment = new ShowComment();
@@ -73,5 +73,5 @@ class TVShowCards {
     showlikes.renderLikes();
   }
 }
-
+popUpListeners();
 export default TVShowCards;
