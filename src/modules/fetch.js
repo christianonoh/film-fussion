@@ -70,7 +70,7 @@ class TVShowCards {
 
   Counter = () => {
     const Movie = document.querySelector('#movies');
-    const movieCount =  movieCounter();
+    const movieCount = movieCounter();
     Movie.textContent = `Movies(${movieCount})`;
   }
 
@@ -78,7 +78,7 @@ class TVShowCards {
     const cardsData = await this.fetchCardsData();
     this.renderCards(cardsData);
     showlikes.renderLikes();
-   this.Counter();
+    this.Counter();
   }
 }
 
