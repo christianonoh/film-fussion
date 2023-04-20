@@ -1,12 +1,14 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable import/no-cycle */
+
+import commentCounter from './commentCounter.js';
+
 const gameKey = 'lA4aY26h8QYvNopssI0V';
 const popUpContainer = document.querySelector('.popup-container');
 const commentContainer = document.createElement('ul');
 commentContainer.classList.add('popup-comments');
 
 class ShowComment {
-  commentCounter = 0;
-
   // Load comments from API
   getSeverData = async (link) => {
     try {
@@ -27,7 +29,6 @@ class ShowComment {
       `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${gameKey}/comments?item_id=${index}`,
     );
     if (movieComments.length > 0) {
-      this.commentCounter = movieComments.length;
       movieComments.forEach((element) => {
         commentContainer.innerHTML += `
     <li class="popup-comment">
@@ -44,20 +45,22 @@ class ShowComment {
   };
 
   deployComments = async (index) => {
+    const counter = await commentCounter(index);
     const comments = await this.loadComments(index);
     const popupCommentsContainer = document.querySelector('.popup-comments-container');
     popupCommentsContainer.innerHTML = `
-      <h3>Comments</h3>
+      <h3>Comments(${counter})</h3>
     `;
     popupCommentsContainer.appendChild(comments);
   };
 
   deployPopUp = async (show, index) => {
     const comments = await this.loadComments(index);
+    const counter = await commentCounter(index);
     const popupCommentsContainer = document.createElement('div');
     popupCommentsContainer.classList.add('popup-comments-container');
     popupCommentsContainer.innerHTML = `
-    <h3>Comments (${this.commentCounter})</h3>
+    <h3>Comments (${counter})</h3>
   `;
     popupCommentsContainer.appendChild(comments);
     popUpContainer.innerHTML = `
@@ -76,8 +79,7 @@ class ShowComment {
             <li> <span class="popup-about-title">Genre</span><span class="popup-about-value">${show.genres[0]}</span></li>
           </ul>
         </div>
-        <div class="comments-wrapper">
-          <div id="comment-container">${popupCommentsContainer.outerHTML}</div>
+        <div class="comments-wrapper">${popupCommentsContainer.outerHTML}
           <div class="add-comment-container">
             <h3>Add comment</h3>
             <form action="" class="comment-form" id="${index}">
@@ -106,7 +108,7 @@ class ShowComment {
       };
 
       const response = await fetch(
-        'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/lA4aY26h8QYvNopssI0V/comments/',
+        `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${gameKey}/comments/`,
         requestOptions,
       );
       const result = await response.text();
@@ -121,26 +123,28 @@ const showComment = new ShowComment();
 
 // Event listeners for buttons
 
-popUpContainer.addEventListener('click', async (event) => {
-  if (event.target.classList.contains('close-popup')) {
-    showComment.togglePopUp();
-  } else if (event.target.classList.contains('comment-btn')) {
-    event.preventDefault();
-    const userName = document.querySelector('input[type="text"]').value;
-    const userComment = document.querySelector('textarea').value;
-    const itemId = event.target.parentElement.id;
-    if (userName !== '' && userComment !== '') {
-      const raw = JSON.stringify({
-        item_id: itemId,
-        username: userName,
-        comment: userComment,
-      });
-      await showComment.postComment(raw);
-      await showComment.deployComments(itemId);
-      document.querySelector('input[type="text"]').value = '';
-      document.querySelector('textarea').value = '';
+const popUpListeners = () => {
+  popUpContainer.addEventListener('click', async (event) => {
+    if (event.target.classList.contains('close-popup')) {
+      showComment.togglePopUp();
+    } else if (event.target.classList.contains('comment-btn')) {
+      event.preventDefault();
+      const userName = document.querySelector('input[type="text"]').value;
+      const userComment = document.querySelector('textarea').value;
+      const itemId = event.target.parentElement.id;
+      if (userName !== '' && userComment !== '') {
+        const raw = JSON.stringify({
+          item_id: itemId,
+          username: userName,
+          comment: userComment,
+        });
+        await showComment.postComment(raw);
+        await showComment.deployComments(itemId);
+        document.querySelector('input[type="text"]').value = '';
+        document.querySelector('textarea').value = '';
+      }
     }
-  }
-});
+  });
+};
 
-export default ShowComment;
+export { popUpListeners, ShowComment };
