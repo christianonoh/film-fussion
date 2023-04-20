@@ -70,6 +70,7 @@ class TVShowCards {
   async updateCards() {
     const cardsData = await this.fetchCardsData();
     this.renderCards(cardsData);
+    showlikes.renderLikes();
   }
 }
 
