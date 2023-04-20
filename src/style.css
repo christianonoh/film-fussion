@@ -184,19 +184,18 @@ h3 {
   align-items: center;
   justify-content: center;
   border-right: 1px solid #000;
+  font-size: 1.2rem;
 }
 
 .popup-about-title {
-  font-weight: 700;
   order: 2;
-}
-
-.popup-about-value {
-  font-size: 2rem;
+  font-size: small;
 }
 
 .comments-wrapper {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100%;
 }
 
@@ -221,10 +220,7 @@ h3 {
 .add-comment-container {
   height: 10rem;
   background-color: #000;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  width: 100%;
   margin: 0 auto 0.2rem auto;
 }
 
@@ -263,6 +259,10 @@ textarea,
 
 .popup-about-container p {
   color: #fff;
-  padding: 0.5rem 0;
+
+  /* padding: 0.5rem 0; */
+  margin: 0.5rem 0 1rem 0;
   font-size: 0.8rem;
+  max-height: 50%;
+  overflow-y: auto;
 }
