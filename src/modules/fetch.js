@@ -1,6 +1,8 @@
 import ShowComment from './comments.js';
+import ShowLikes from './likes.js';
 
 const showcomment = new ShowComment();
+const showlikes = new ShowLikes();
 
 const Cards = document.querySelector('.container');
 
@@ -39,8 +41,8 @@ class TVShowCards {
               </div>
               <div class='name-like'>
                 <h2 class='ch-nmae'>${data.name}</h2>
-                <span class='heart'>&#x2764;</span>
-                <span id='likeCount'>(0)</span>
+                <span class='heart' data-index="${data.id}">&#x2764;</span>
+                <span id='likeCount' data-index="${data.id}">(0)</span>
               </div>
               <button class='comment-Btn' data-index="${data.id}">Comments</button>
             </div>`;
@@ -55,11 +57,20 @@ class TVShowCards {
         showcomment.deployPopUp(show, index);
       });
     });
+
+    const likeBtns = document.querySelectorAll('.heart');
+    likeBtns.forEach((likeBtn) => {
+      likeBtn.addEventListener('click', (event) => {
+        const { index } = event.target.dataset;
+        showlikes.updateLikes(index);
+      });
+    });
   };
 
   async updateCards() {
     const cardsData = await this.fetchCardsData();
     this.renderCards(cardsData);
+    showlikes.renderLikes();
   }
 }
 
