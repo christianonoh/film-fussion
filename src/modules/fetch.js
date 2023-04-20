@@ -15,7 +15,7 @@ class TVShowCards {
   fetchCardsData = async () => {
     const requests = [];
 
-    for (let i = 1; i <= 22; i += 1) {
+    for (let i = 1; i <= 100; i += 1) {
       requests.push(fetch(`https://api.tvmaze.com/shows/${i}`));
     }
 
