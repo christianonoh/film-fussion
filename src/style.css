@@ -153,18 +153,18 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 45%;
 }
 
 .popup-image img {
-  height: 80%;
+  height: 70%;
 }
 
 .popup-details {
   display: flex;
   flex-direction: column;
   background-color: #000;
-  width: 50%;
+  width: 55%;
   padding: 2rem 5% 0.5rem 5%;
 }
 
@@ -206,9 +206,9 @@ h3 {
 
 .popup-comments {
   flex: 1;
-  height: 20vw;
+  min-height: 4rem;
   max-height: 20rem;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .popup-comment {
@@ -242,7 +242,7 @@ textarea,
 }
 
 .comment-date {
-  font-size: 0.8rem;
+  font-size: smaller;
   margin-top: 0;
   line-height: normal;
 }
@@ -253,7 +253,6 @@ textarea,
 
 .no-scroll {
   overflow: hidden;
-  backdrop-filter: blur(5px);
 }
 
 .close-popup {
