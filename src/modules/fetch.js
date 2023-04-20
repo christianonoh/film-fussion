@@ -1,5 +1,6 @@
 import ShowComment from './comments.js';
 import ShowLikes from './likes.js';
+import movieCounter from './movies-counter.js';
 
 const showcomment = new ShowComment();
 const showlikes = new ShowLikes();
@@ -67,10 +68,17 @@ class TVShowCards {
     });
   };
 
+  Counter = () => {
+    const Movie = document.querySelector('#movies');
+    const movieCount =  movieCounter();
+    Movie.textContent = `Movies(${movieCount})`;
+  }
+
   async updateCards() {
     const cardsData = await this.fetchCardsData();
     this.renderCards(cardsData);
     showlikes.renderLikes();
+   this.Counter();
   }
 }
 
