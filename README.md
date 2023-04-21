@@ -55,7 +55,7 @@ This webapp is a catalog of items that provides detailed information about each 
 
 ## 🚀 Live Demo <a name="protfolio-project"></a>
  
-N/A
+	https://deploy-preview-31--mellifluous-cat-664b2f.netlify.app
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -108,7 +108,7 @@ Step 2: Locate the folder where you cloned your project to and open the `index.h
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 ## 📼 Project Walkthrough <a name="project-walk"></a>
 
-- currently I dont have.
+- https://drive.google.com/file/d/1N4WW8dcbmkrRAU6VyWjKt436VrTo4BaB/view
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
