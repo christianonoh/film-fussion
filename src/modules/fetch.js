@@ -42,8 +42,9 @@ class TVShowCards {
               </div>
               <div class='name-like'>
                 <h2 class='ch-nmae'>${data.name}</h2>
-                <span class='heart' data-index="${data.id}">&#x2764;</span>
-                <span id='likeCount' data-index="${data.id}">(0)</span>
+                <span class="likes">
+                <span class='heart' data-index="${data.id}">&#9829;</span>
+                <span id='likeCount' data-index="${data.id}">(0)</span></span>
               </div>
               <button class='comment-Btn' data-index="${data.id}">Comments</button>
             </div>`;
