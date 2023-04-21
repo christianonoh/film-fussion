@@ -33,7 +33,7 @@ class ShowLikes {
         );
 
         if (likeCount) {
-          likeCount.textContent = `(${like.likes})`;
+          likeCount.innerHTML = `${like.likes} LIKES`;
         }
         if (heartIcon) {
           if (like.likes > 0) {

@@ -8,7 +8,7 @@
 body {
   overflow-x: hidden;
   scroll-behavior: smooth;
-  background-color: #1c1b19;
+  background-color: #282634;
 }
 
 /* Nav & Footer  */
@@ -138,9 +138,11 @@ footer {
   color: rgb(83, 77, 76);
 }
 
-.image-div {
-  display: flex;
-  justify-content: center;
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
 }
 
 .comment-form input,

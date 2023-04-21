@@ -15,7 +15,7 @@ class TVShowCards {
   fetchCardsData = async () => {
     const requests = [];
 
-    for (let i = 1; i <= 22; i += 1) {
+    for (let i = 1; i <= 21; i += 1) {
       requests.push(fetch(`https://api.tvmaze.com/shows/${i}`));
     }
 
@@ -46,7 +46,9 @@ class TVShowCards {
                 <span class='heart' data-index="${data.id}">&#9829;</span>
                 <span id='likeCount' data-index="${data.id}">(0)</span></span>
               </div>
+              <div class="Comment-div">
               <button class='comment-Btn' data-index="${data.id}">Comments</button>
+              </div>
             </div>`;
       }
     });
