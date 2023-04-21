@@ -155,9 +155,7 @@ footer {
   display: flex;
   justify-content: center;
 }
->>>>>>> f91d845d736c6b41b6ebdc264c7cf9ca2fcdfb6c
-
-.comment-form input,
+>>>>>>>f91d845d736c6b41b6ebdc264c7cf9ca2fcdfb6c .comment-form input,
 textarea {
   background-color: #000;
   outline: none;
@@ -357,7 +355,9 @@ h3 {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, #000 70%);
   }
 
-  #movies { margin-top: 5rem; }
+  #movies {
+    margin-top: 5rem;
+  }
 
   .nav-item {
     display: flex;
@@ -403,7 +403,9 @@ h3 {
     padding: 0 5%;
   }
 
-  nav i { display: none; }
+  nav i {
+    display: none;
+  }
 
   .nav-items {
     list-style: none;
