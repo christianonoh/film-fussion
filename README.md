@@ -78,7 +78,7 @@ Once you have git installed on your machine you can clone your project by runnin
 
 Alternatively, you can download the zip file of your project by clicking on the `Code` button on the right side of your project page and clicking on `Download ZIP`
 
-Step 2: Locate the folder where you cloned your project to and open the `index.html` file in your browser to view your project.
+Step 2: Locate the folder where you cloned your project to and run commond on terminal `npm install` then `npm run build` then `npm start` to view it on live server.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
