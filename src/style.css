@@ -82,6 +82,11 @@ footer {
   box-shadow: 2px 2px 21px -5px rgba(0, 0, 0, 0.82);
 }
 
+.image-div {
+  display: flex;
+  justify-content: center;
+}
+
 .name-like {
   display: flex;
   justify-content: space-between;
@@ -138,12 +143,12 @@ footer {
   color: rgb(83, 77, 76);
 }
 
-.image {
+/* .image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
-}
+} */
 
 .comment-form input,
 textarea {
@@ -236,6 +241,7 @@ h3 {
 
 .popup-about-container {
   height: 30%;
+  overflow: auto;
 }
 
 .popup-about-title {
