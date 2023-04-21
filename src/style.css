@@ -143,19 +143,6 @@ footer {
   color: rgb(83, 77, 76);
 }
 
-<<<<<<< HEAD
-/* .image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-} */
-=======
-.image-div {
-  display: flex;
-  justify-content: center;
-}
->>>>>>>f91d845d736c6b41b6ebdc264c7cf9ca2fcdfb6c .comment-form input,
 textarea {
   background-color: #000;
   outline: none;
