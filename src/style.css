@@ -7,7 +7,7 @@
 body {
   overflow-x: hidden;
   scroll-behavior: smooth;
-  background-color: #1c1b19;
+  background-color: #282634;
 }
 
 nav {
@@ -57,9 +57,9 @@ header {
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   row-gap: 30px;
-  padding: 20px 0 30px 140px;
+  padding: 8% 5%;
 }
 
 footer {
@@ -80,8 +80,8 @@ footer {
 .cards {
   padding: 20px;
   background-color: rgb(218, 250, 8);
+  background-color: gray;
   width: 400px;
-  height: 450px;
   border-radius: 30px;
   overflow-y: auto;
 }
@@ -92,17 +92,32 @@ footer {
 
 .name-like {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  padding-bottom: 10px;
 }
 
 .comment-Btn {
   width: 100%;
-  padding: 10px;
+  padding: 15px;
   background-color: red;
   color: #fff;
-  border-radius: 10px;
+  border-radius: 12px;
+}
+
+.like-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#likeCount {
+  color: #fff;
+}
+
+.Comment-div {
+  display: flex;
+  justify-content: center;
 }
 
 .heart {
@@ -110,17 +125,18 @@ footer {
 }
 
 .ch-nmae {
-  font-size: 30px;
-  color: rgb(83, 77, 76);
-  font-family: "DynaPuff", cursive;
+  font-size: 22px;
+  color: hsla(240, 7%, 97%, 1);
+  font-family: "Montserrat Alternates", sans-serif;
 }
 
-.image-div {
-  display: flex;
-  justify-content: center;
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
 }
 
-/* PopUp  */
 .popup-container {
   height: 100vh;
   display: flex;
@@ -258,8 +274,7 @@ textarea,
 
 .popup-about-container p {
   color: #fff;
-
-  /* padding: 0.5rem 0; */
+  padding: 0.5rem 0;
   margin: 0.5rem 0 1rem 0;
   font-size: 0.8rem;
   max-height: 50%;
