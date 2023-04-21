@@ -26,19 +26,20 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Protfolio-project] <a name="about-project"></a>
+# 🎬 FilmFussion <a name="about-project"></a>
 
-This webapp is a catalog of items that provides detailed information about each item. It uses two APIs to allow users to interact with the items by clicking a Like button and leaving comments in a popup.
+FilmFussion is a web-based platform that provides a comprehensive database of TV shows and movies. The website allows users to rate and comment on movies, share their opinions and recommendations, and interact with other members of the community.
 
 ## 🛠 Built With <a name="visual studio">HTML5</a>
 
 ### Tech Stack <a name="tech-stack"></a>
-**HTml**
-**CSS**
-**Javascript es6**
-**Webpack**
-**Implement API**
-**external API**
+- Javascript
+- HTML
+- Webpack
+- Font Awesome for the icons
+- CSS
+- [Involvement API](https://www.notion.so/microverse/Involvement-API-869e60b5ad104603aa6db59e08150270)
+- [TVmaze API](https://www.tvmaze.com/api)
 
 <!-- Features -->
 
