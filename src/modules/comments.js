@@ -66,6 +66,7 @@ class ShowComment {
     popUpContainer.innerHTML = `
     <div class="popup">
     <i class="fa fa-times close-popup" aria-hidden="true"></i>
+    <span class="close-popup-hit"></span>
       <div class="popup-image">
         <img src="${show.image.medium}" alt="${show.name}">
       </div>
@@ -84,7 +85,7 @@ class ShowComment {
             <h3>Add comment</h3>
             <form action="" class="comment-form" id="${index}">
               <input type="text" maxlength="100" required placeholder="Your name...">
-              <textarea name="comment" id="" rows="2" placeholder="Add a comment..." required></textarea>
+              <textarea name="comment" id="" rows="1" placeholder="Add a comment..." required></textarea>
               <button class="comment-btn">Post</button>
             </form>
           </div>
@@ -112,9 +113,9 @@ class ShowComment {
         requestOptions,
       );
       const result = await response.text();
-      console.log(result);
+      return result;
     } catch (error) {
-      console.log('error', error);
+      return error;
     }
   };
 }
@@ -125,7 +126,7 @@ const showComment = new ShowComment();
 
 const popUpListeners = () => {
   popUpContainer.addEventListener('click', async (event) => {
-    if (event.target.classList.contains('close-popup')) {
+    if (event.target.classList.contains('close-popup-hit')) {
       showComment.togglePopUp();
     } else if (event.target.classList.contains('comment-btn')) {
       event.preventDefault();
